@@ -1,27 +1,34 @@
-include "main.h"
+#include "main.h"
+
 /**
- * leet - prototype function
- *Description: function that encodes a string into 1337.
- * @s: an input string to encode
- * Return: An encode string
+ * leet - encode a string into 1337
+ *
+ * @str: the string to be processed
+ * Description:
+ *	Letters a and A should be replaced by 4
+ *	Letters e and E should be replaced by 3
+ *	Letters o and O should be replaced by 0
+ *	Letters t and T should be replaced by 7
+ *	Letters l and L should be replaced by 1
+ *
+ * Return: resultant string
  */
-char *leet(char *s)
+char *leet(char *str)
 {
-	int i;
-	int j;
-	char code[10] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'};
-	char letters[10] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
-	i = 0;
-	while (s[i] != '\0')
+	char ch[] = "aAeEoOtTlL";
+	char leet[] = "4433007711";
+	int i, j;
+
+	for (i = 0; str[i] != '\0'; ++i)
 	{
-		for (j = 0; j < 10; j++)
+		for (j = 0; ch[j] != '\0'; ++j)
 		{
-			if (s[i] == letters[j])
+			if (str[i] == ch[j])
 			{
-				s[i] = code[j];
+				str[i] = leet[j];
+				break;
 			}
 		}
-		i++;
 	}
-	return (s);
+	return (str);
 }
