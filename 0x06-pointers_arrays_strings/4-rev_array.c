@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- *  * reverse_array - reverse an integer array
- *   *
- *    * @a: the integer array
- *     * @n: total number of array elements
- *      *
- *       */
+ * reverse_array - reverse an integer array
+ *
+ * @a: the integer array
+ * @n: total number of array elements
+ *
+ */
 void reverse_array(int *a, int n)
 {
 
