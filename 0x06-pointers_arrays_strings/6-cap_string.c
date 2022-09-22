@@ -44,7 +44,7 @@ int is_separator(char ch)
 	for (i = 0; separators[i] != '\0'; ++i)
 	{
 		if (separators[i] == ch)
-													return (1);
+		return (1);
 	}
 	return (0);
 }
