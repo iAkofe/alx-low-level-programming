@@ -2,11 +2,11 @@
 #define NULL 0
 
 /**
- *  * wildcmp - checks if two strings are identical
- *   * @s1: first string
- *    * @s2: second string
- *     * Return: returns 1 if true else return 0
- *      */
+ * wildcmp - checks if two strings are identical
+ * @s1: first string
+ * @s2: second string
+ * Return: returns 1 if true else return 0
+ */
 
 int wildcmp(char *s1,  char *s2)
 {
