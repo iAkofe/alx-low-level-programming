@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
- *  * main - Entry point
- *   * Description: checks how many coins will make change
- *    * @argc: argument count
- *     * @argv: string parameters
- *      * Return: always 0
- *       */
+ * main - Entry point
+ * Description: checks how many coins will make change
+ * @argc: argument count
+ * @argv: string parameters
+ * Return: always 0
+ */
 
 int main(int argc, char *argv[])
 {
