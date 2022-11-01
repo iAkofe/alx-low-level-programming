@@ -1,22 +1,27 @@
-; Declare needed C  functions
-	extern	printf		; the C function, to be called
+; My comments: It is so fun to write in assembly language
+; File: 101-hello_holberton.asm
+; Auth: Firdaus H. Salim
+; Desc: 64-bit assembly program that prints
+;       Hello, Holberton followed by a new line.
 
-	section .data		; Data section, initialized variables
-msg:	db "Hello, Holberton", 0; C string needs 0
-fmt:	db "%s", 10, 0		; The printf format, "\n",'0'
+extern printf
 
-	section .text		; Code section.
+section .text
+   global main
 
-	global main		; the standard gcc entry point
-main:				; the program label for the entry point
-	push	rbp		; set up stack frame, must be alligned
+main:
+   push rbp
 
-	mov	rdi,fmt
-	mov	rsi,msg
-	mov	rax,0		; or can be  xor  rax,rax
-	call	printf		; Call C function
+   mov rdi,fmt
+   mov rsi,msg
+   mov rax,0
+   call printf
 
-	pop	rbp		; restore stack
+   pop rbp
 
-	mov	rax,0		; normal, no error, return value
-	ret			; return
+   mov rax,0
+   ret
+
+section .data
+   msg: db "Hello, Holberton", 0
+   fmt: db "%s", 10, 0
