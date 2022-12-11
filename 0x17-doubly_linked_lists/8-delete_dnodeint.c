@@ -1,51 +1,52 @@
 #include "lists.h"
 
 /**
- * delete_dnodeint_at_index - deletes node at a given index pos
- * @head: pointer to the dll
- * @index: 0-based index of the position of node to delete
- * Return: 1 if success else -1
+ * delete_dnodeint_at_index - deletes the node at index of a
+ * dlistint_t linked list
+ *
+ * @head: head of the list
+ * @index: index of the new node
+ * Return: 1 if it succeeded, -1 if it failed
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *last = *head;
-	unsigned int count = 0;
+	dlistint_t *h1;
+	dlistint_t *h2;
+	unsigned int i;
 
-	if (*head == NULL)
-		return (-1);
-	if ((*head)->next == NULL && index == 0)
+	h1 = *head;
+
+	if (h1 != NULL)
+		while (h1->prev != NULL)
+			h1 = h1->prev;
+
+	i = 0;
+
+	while (h1 != NULL)
 	{
-		free(head);
-		return (1);
-	}
-	while (last->next != NULL)
-	{
-		if (count == index)
+		if (i == index)
 		{
-			if (last->prev == NULL)
+			if (i == 0)
 			{
-				last->next->prev = NULL;
-				*head = last->next;
-				free(last);
-				return (1);
+				*head = h1->next;
+				if (*head != NULL)
+					(*head)->prev = NULL;
 			}
 			else
 			{
-				last->prev->next = last->next;
-				last->next->prev = last->prev;
-				free(last);
-				return (1);
+				h2->next = h1->next;
+
+				if (h1->next != NULL)
+					h1->next->prev = h2;
 			}
+
+			free(h1);
+			return (1);
 		}
-		last = last->next;
-		count++;
+		h2 = h1;
+		h1 = h1->next;
+		i++;
 	}
-	count++;
-	if (count == index)
-	{
-		last->prev->next = NULL;
-		free(last);
-		return (1);
-	}
+
 	return (-1);
 }
